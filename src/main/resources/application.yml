@@ -1,0 +1,13 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+  sql:
+    init:
+      mode: always
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3308/skillmonit?createDatabaseIfNotExist=true
+    driver-class-name: com.mysql.jdbc.Driver
+  
+  liquibase:
+        change-log: classpath:database/liquibaseChangeLog.xml

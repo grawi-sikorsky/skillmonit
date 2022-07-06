@@ -1,14 +1,11 @@
 version: "3"
 
 services:
-  mysql:
+  db:
     image: mysql:latest
     container_name: skillmonit_db
     restart: always
     ports:
       - "3308:3306"
-    environment:
-      MYSQL_DATABASE: skillmonit
-      MYSQL_USER: user
-      MYSQL_PASSWORD: test
-      MYSQL_ROOT_PASSWORD: skillmonitpass
+    env_file:
+      - .env
