@@ -8,8 +8,8 @@ import pl.jsikora.skillmonit.models.User;
 
 @Mapper(componentModel = "spring")
 public interface UserMapper {
-    UserRegisterDTO mapToUserRegisterDTO(User user);
     User mapToUser(UserRegisterDTO userRegisterDTO);
+
     UserDTO mapUserToUserDTO(User user);
-    
+
 }

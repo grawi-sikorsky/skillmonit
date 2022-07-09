@@ -13,24 +13,23 @@ import pl.jsikora.skillmonit.models.UserRepository;
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
+
     private final UserMapper userMapper;
+
     private final BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
-    
 
     public UserServiceImpl(UserRepository userRepository, UserMapper userMapper) {
         this.userRepository = userRepository;
         this.userMapper = userMapper;
     }
 
-
-
     @Override
     public UserDTO addUser(UserRegisterDTO userRegisterDTO) throws RuntimeException {
         User user = userMapper.mapToUser(userRegisterDTO);
 
-        if(userRepository.findByUsername(user.getUsername()) != null){
+        if (userRepository.findByUsername(user.getUsername()) == null) {
             user.setPassword(bCryptPasswordEncoder.encode(userRegisterDTO.getPassword()));
-            return userMapper.mapUserToUserDTO( userRepository.save(user) );
+            return userMapper.mapUserToUserDTO(userRepository.save(user));
         }
         throw new RuntimeException("User probably exists..");
     }

@@ -6,10 +6,9 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UserRepository extends CrudRepository<User,Long>{
+public interface UserRepository extends CrudRepository<User, Long> {
     User findByUsername(String username);
-    User findByUUID(String uuid);
-    
+
     @Transactional
-    void deleteByUUID(String uuid);
+    void deleteByuuid(String uuid);
 }
