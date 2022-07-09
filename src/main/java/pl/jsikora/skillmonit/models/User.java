@@ -44,7 +44,7 @@ public class User {
     private String lastname;
 
     @Size(max = 20)
-    @Column(name = "phone", nullable = false)
+    @Column(name = "phone")
     private String phone;
 
     @PrePersist

@@ -1,0 +1,12 @@
+databaseChangeLog:
+  - preConditions:
+  - runningAs:
+  - changeSet:
+      id: 1
+      author: jsikora
+      changes:
+        - renameColumn:
+            newColumnName:  username  
+            oldColumnName:  usename
+            columnDataType: varchar(50)
+            tableName: users

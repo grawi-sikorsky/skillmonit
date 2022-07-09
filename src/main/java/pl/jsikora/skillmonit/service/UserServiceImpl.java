@@ -13,9 +13,7 @@ import pl.jsikora.skillmonit.models.UserRepository;
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
-
     private final UserMapper userMapper;
-
     private final BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
 
     public UserServiceImpl(UserRepository userRepository, UserMapper userMapper) {
